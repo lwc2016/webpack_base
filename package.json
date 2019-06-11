@@ -1,0 +1,39 @@
+{
+  "name": "chapter_01",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "watch": "webpack --watch",
+    "dev": "webpack-dev-server --open",
+    "server": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "7.4.5",
+    "@babel/preset-env": "7.4.5",
+    "@babel/preset-react": "7.0.0",
+    "babel-loader": "8.0.6",
+    "css-loader": "2.1.1",
+    "file-loader": "4.0.0",
+    "less": "3.9.0",
+    "less-loader": "5.0.0",
+    "react": "16.8.6",
+    "react-dom": "16.8.6",
+    "style-loader": "0.23.1",
+    "webpack": "4.33.0",
+    "webpack-cli": "3.3.3",
+    "webpack-dev-server": "3.7.1"
+  },
+  "dependencies": {
+    "koa": "2.7.0",
+    "koa-static": "5.0.0",
+    "koa-webpack": "5.2.3",
+    "webpack-dev-middleware": "3.7.0",
+    "webpack-hot-middleware": "2.25.0"
+  }
+}
