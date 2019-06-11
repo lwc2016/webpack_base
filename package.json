@@ -1,39 +1,46 @@
 {
-  "name": "chapter_01",
+  "name": "webpack_base",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "webpack-dev-middleware": "^3.7.0",
+    "webpack-hot-middleware": "^2.25.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.5",
+    "@babel/preset-env": "^7.4.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^2.1.1",
+    "file-loader": "^4.0.0",
+    "less": "^3.9.0",
+    "less-loader": "^5.0.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1",
+    "webpack": "^4.33.0",
+    "webpack-cli": "^3.3.3",
+    "webpack-dev-server": "^3.7.1"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "watch": "webpack --watch",
-    "dev": "webpack-dev-server --open",
-    "server": "node server.js"
+    "watch:config": "webpack --config webpack.watch.js",
+    "dev:server": "webpack-dev-server --config webpack.devServer.js",
+    "dev:express_server": "node express_server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lwc2016/webpack_base.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "7.4.5",
-    "@babel/preset-env": "7.4.5",
-    "@babel/preset-react": "7.0.0",
-    "babel-loader": "8.0.6",
-    "css-loader": "2.1.1",
-    "file-loader": "4.0.0",
-    "less": "3.9.0",
-    "less-loader": "5.0.0",
-    "react": "16.8.6",
-    "react-dom": "16.8.6",
-    "style-loader": "0.23.1",
-    "webpack": "4.33.0",
-    "webpack-cli": "3.3.3",
-    "webpack-dev-server": "3.7.1"
+  "bugs": {
+    "url": "https://github.com/lwc2016/webpack_base/issues"
   },
-  "dependencies": {
-    "koa": "2.7.0",
-    "koa-static": "5.0.0",
-    "koa-webpack": "5.2.3",
-    "webpack-dev-middleware": "3.7.0",
-    "webpack-hot-middleware": "2.25.0"
-  }
+  "homepage": "https://github.com/lwc2016/webpack_base#readme"
 }

@@ -1,15 +1,13 @@
 "use strict";
 const path = require("path");
-const webpack = require("webpack");
 
 module.exports = {
     entry: {
-        index: ["webpack-hot-middleware/client?noInfo=true&reload=true","./src/index.js"]
+        index: "./src/index.js"
     },
     output: {
         path: path.join(__dirname, "dist"),
-        filename: "index.bundle.js",
-        publicPath: "http://localhost:8080/"
+        filename: "index.bundle.js"
     },
     module: {
         rules: [
@@ -19,12 +17,5 @@ module.exports = {
             {test: /.(png|jpg)$/, use: "file-loader"}
         ]
     },
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
-    // devServer: {
-    //     contentBase: "./dist",
-    //     hot: true
-    // },
     mode: "development",
 }
