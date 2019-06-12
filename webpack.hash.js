@@ -1,5 +1,5 @@
 "use strict";
-// webpack 基础配置文件
+// 文件指纹
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
@@ -11,14 +11,21 @@ module.exports = {
     },
     output: {
         path: path.join(__dirname, "dist"),
-        filename: "index.bundle.js"
+        filename: "[name]_[chunkhash:8].js"
     },
     module: {
         rules: [
             {test: /.js$/, use: "babel-loader"},
-            {test: /.css$/, use: ["style-loader", "css-loader"]},
-            {test: /.less$/, use: ["style-loader", "css-loader", "less-loader"]},
-            {test: /.(png|jpg)$/, use: "file-loader"}
+            {test: /.css$/, use: [MiniCssExtractPlugin.loader, "css-loader"]},
+            {test: /.less$/, use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader"]},
+            {test: /.(png|jpg)$/, use: [
+                {
+                    loader: "file-loader",
+                    options: {
+                        name: "[name]_[hash:8].[ext]"
+                    }
+                }
+            ]}
         ]
     },
     plugins: [
@@ -26,7 +33,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: "./index.html",
             filename: "index.html"
+        }),
+        new MiniCssExtractPlugin({
+            filename: "[name]_[contenthash:8].css"
         })
     ],
-    mode: "development"
+    mode: "production"
 }

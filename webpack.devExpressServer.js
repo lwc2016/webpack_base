@@ -1,3 +1,5 @@
+"use strict";
+// express + webpack 相关配置;
 const config = require("./webpack.config.js");
 const webpack = require("webpack");
 const entry = config.entry;
@@ -12,7 +14,7 @@ Object.assign(config, {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoEmitOnErrorsPlugin()
     ]
-})
+});
 
 console.log(config);
 
