@@ -1,4 +1,6 @@
 "use strict";
+// 移动端开发时，px转换成rem
+"use strict";
 // 文件指纹
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -16,13 +18,26 @@ module.exports = {
     module: {
         rules: [
             {test: /.js$/, use: "babel-loader"},
-            {test: /.css$/, use: [MiniCssExtractPlugin.loader, "css-loader", {
+            {test: /.css$/, use: [MiniCssExtractPlugin.loader, "css-loader", 
+            {
+                loader: "px2rem-loader"
+            },
+            {
                 loader: "postcss-loader",
                 options: {
                     plugins: [require("autoprefixer")]
                 }
             }]},
-            {test: /.less$/, use: [MiniCssExtractPlugin.loader, "css-loader", "less-loader",{
+            {test: /.less$/, use: [MiniCssExtractPlugin.loader, "css-loader",
+            {
+                loader: "px2rem-loader",
+                options: {
+                    remUnit: 75,
+                    remPrecesion: 8
+                }
+            },
+            "less-loader",
+            {
                 loader: "postcss-loader",
                 options: {
                     plugins: [require("autoprefixer")]
@@ -41,7 +56,7 @@ module.exports = {
     plugins: [
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
-            template: "./src/index.html",
+            template: "./src/mobile.html",
             filename: "index.html"
         }),
         new MiniCssExtractPlugin({

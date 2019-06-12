@@ -23,9 +23,12 @@
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
+    "lib-flexible": "^0.3.2",
     "mini-css-extract-plugin": "^0.7.0",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "postcss-loader": "^3.0.0",
+    "px2rem-loader": "^0.1.9",
+    "raw-loader": "^0.5.1",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "style-loader": "^0.23.1",
@@ -42,7 +45,8 @@
     "dev:express_server": "node express_server.js",
     "dev:hash": "webpack --config webpack.hash.js",
     "dev:mini": "webpack --config webpack.mini.js",
-    "dev:postCss": "webpack --config webpack.postCss.js"
+    "dev:postCss": "webpack --config webpack.postCss.js",
+    "dev:rem": "webpack --config webpack.rem.js"
   },
   "repository": {
     "type": "git",

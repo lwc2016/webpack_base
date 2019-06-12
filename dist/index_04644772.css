@@ -1,0 +1,19 @@
+body {
+  background-color: #f5f5f5;
+  color: red;
+  width: 10rem;
+  margin: 0 auto;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+.logo {
+  width: 10rem;
+}
+
+.logo img {
+  width: 100%;
+  height: auto;
+}
