@@ -20,6 +20,7 @@
     "css-loader": "^2.1.1",
     "cssnano": "^4.1.10",
     "file-loader": "^4.0.0",
+    "glob": "^7.1.4",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
@@ -46,7 +47,8 @@
     "dev:hash": "webpack --config webpack.hash.js",
     "dev:mini": "webpack --config webpack.mini.js",
     "dev:postCss": "webpack --config webpack.postCss.js",
-    "dev:rem": "webpack --config webpack.rem.js"
+    "dev:rem": "webpack --config webpack.rem.js",
+    "dev:multiple": "webpack --config webpack.multiple.js"
   },
   "repository": {
     "type": "git",

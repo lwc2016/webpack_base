@@ -1,0 +1,1 @@
+document.write("详情页面");
