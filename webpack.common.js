@@ -1,10 +1,11 @@
 "use strict";
-// html, css, js代码压缩
+// 提取公共模块
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const OptimizeCssAssetsWebpackPlugin = require("optimize-css-assets-webpack-plugin");
+const HtmlWebpackExternalsPlugin = require("html-webpack-externals-plugin");
 
 module.exports = {
     entry: {
@@ -42,16 +43,34 @@ module.exports = {
             template: "./src/index.html",
             filename: "index.html",
             chunks: ["index"],
-            inject: true,
-            minify: {
-                html5: true,
-                collapseWhitespace: true,
-                preserveLineBreaks: false,
-                minifyCSS: true,
-                minifyJS: true,
-                removeComments: true,
-            }
+            inject: true
+        }),
+        new HtmlWebpackExternalsPlugin({
+            externals: [
+                {
+                    module: "react",
+                    entry: "https://cdn.bootcss.com/react/16.8.6/umd/react.production.min.js",
+                    global: "React"
+                },
+                {
+                    module: "react-dom",
+                    entry: "https://cdn.bootcss.com/react-dom/16.8.6/umd/react-dom.production.min.js",
+                    global: "ReactDOM"
+                }
+            ]
         })
     ],
-    mode: "production"
+    mode: "production",
+    optimization: {
+        splitChunks: {
+            minSize: 0,
+            cacheGroups: {
+                commons: {
+                    name: "common",
+                    chunks: "all",
+                    minChunks: 2
+                }
+            }
+        }
+    }
 }

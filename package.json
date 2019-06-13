@@ -21,6 +21,7 @@
     "cssnano": "^4.1.10",
     "file-loader": "^4.0.0",
     "glob": "^7.1.4",
+    "html-webpack-externals-plugin": "^3.8.0",
     "html-webpack-plugin": "^3.2.0",
     "less": "^3.9.0",
     "less-loader": "^5.0.0",
@@ -48,7 +49,8 @@
     "dev:mini": "webpack --config webpack.mini.js",
     "dev:postCss": "webpack --config webpack.postCss.js",
     "dev:rem": "webpack --config webpack.rem.js",
-    "dev:multiple": "webpack --config webpack.multiple.js"
+    "dev:multiple": "webpack --config webpack.multiple.js",
+    "dev:common": "webpack --config webpack.common.js"
   },
   "repository": {
     "type": "git",
